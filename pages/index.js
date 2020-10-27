@@ -26,9 +26,14 @@ export default function Home() {
     <div className={classes.container}>
       <Head>
         <title>Simple Js - ROGER</title>
+        <link
+          rel="shortcut icon"
+          type="image/png"
+          href="/obsidianIcon-32x32.png"
+        />
       </Head>
 
-      <main className={classes.main}>hola</main>
+      <main className={classes.main}></main>
     </div>
   );
 }

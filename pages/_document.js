@@ -22,6 +22,7 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/obsidianIcon-16x16.png"
           />
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />
