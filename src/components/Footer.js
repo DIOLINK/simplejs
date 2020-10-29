@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
 const styles = makeStyles({
-  root: { padding: 12 },
+  root: { paddingBottom: 5, marginLeft: 38 },
 });
 
 const Footer = () => {
