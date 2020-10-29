@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Typography, Button } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 import Footer from '../../src/components/Footer';
 import { listFiles } from '../utils/files';
 
@@ -26,8 +26,7 @@ const styles = makeStyles({
     fontWeight: 'bold',
     margin: 12,
   },
-  keypad: {},
-  buttonItem: {},
+  buttonItem: { margin: 5, width: '33.33%' },
 });
 
 export default function Home({ title, listfiles }) {
@@ -36,32 +35,26 @@ export default function Home({ title, listfiles }) {
     <div className={classes.container}>
       <Head>
         <title>{'Simple Js - ROGER'}</title>
-        <link
-          rel="shortcut icon"
-          type="image/png"
-          href="/obsidianIcon-32x32.png"
-        />
       </Head>
       <Typography variant="h3" className={classes.titleMain}>
         {title}
       </Typography>
       <div className={classes.main}>
         <Grid container alignContent="center" direction="column" spacing={2}>
-          {listfiles.map((file) => (
-            <Grid item className={classes.keypad}>
+          <Grid item className={classes.keypad} md={6}>
+            {listfiles.map((file) => (
               <Button
                 size="large"
                 variant="contained"
                 color="primary"
                 fullWidth
                 key={file}
+                className={classes.buttonItem}
               >
-                <Typography variant="caption" className={classes.buttonItem}>
-                  {file}
-                </Typography>
+                <Typography variant="caption">{file}</Typography>
               </Button>
-            </Grid>
-          ))}
+            ))}
+          </Grid>
         </Grid>
       </div>
       <Footer className={classes.footer} />
