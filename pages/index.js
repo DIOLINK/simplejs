@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../src/components/Footer';
 
 const styles = makeStyles({
   container: {
@@ -33,7 +34,9 @@ export default function Home() {
         />
       </Head>
 
-      <main className={classes.main}></main>
+      <main className={classes.main}>
+        <Footer />
+      </main>
     </div>
   );
 }
