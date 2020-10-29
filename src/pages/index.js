@@ -48,13 +48,12 @@ export default function Home({ title, listfiles }) {
       <div className={classes.main}>
         <Grid container alignContent="center" direction="column" spacing={2}>
           {listfiles.map((file) => (
-            <Grid item className={classes.keypad}>
+            <Grid item className={classes.keypad} key={file}>
               <Button
                 size="large"
                 variant="contained"
                 color="primary"
                 fullWidth
-                key={file}
               >
                 <Typography variant="caption" className={classes.buttonItem}>
                   {file}
