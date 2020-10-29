@@ -10,6 +10,7 @@ const styles = makeStyles({
       'linear-gradient(0deg, rgba(167,96,213,1) 26%, rgba(0,255,171,1) 100%)',
     minHeight: '100vh',
     display: 'flex',
+    flex: 1,
     padding: '0 5em',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -26,12 +27,12 @@ const styles = makeStyles({
   },
 });
 
-export default function Home() {
+export default function Home({ title }) {
   const classes = styles();
   return (
     <div className={classes.container}>
       <Head>
-        <title>Simple Js - ROGER</title>
+        <title>{'Simple Js - ROGER'}</title>
         <link
           rel="shortcut icon"
           type="image/png"
@@ -39,7 +40,7 @@ export default function Home() {
         />
       </Head>
       <Typography variant="h2" className={classes.titleMain}>
-        {'Javascript code programs'}
+        {title}
       </Typography>
       <Grid
         container
@@ -57,4 +58,12 @@ export default function Home() {
       <Footer className={classes.footer} />
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      title: 'Javascript code programs',
+    },
+  };
 }
