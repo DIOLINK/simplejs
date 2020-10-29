@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper, Typography, Button } from '@material-ui/core';
 import Footer from '../../src/components/Footer';
+import { listFiles } from '../utils/files';
 
 const styles = makeStyles({
   container: {
@@ -17,7 +18,7 @@ const styles = makeStyles({
     alignItems: 'center',
   },
   main: {
-    flex: '1',
+    marginTop: 20,
   },
   footer: { width: '80vw', background: 'transparent' },
   titleMain: {
@@ -25,9 +26,11 @@ const styles = makeStyles({
     fontWeight: 'bold',
     margin: 12,
   },
+  keypad: {},
+  buttonItem: {},
 });
 
-export default function Home({ title }) {
+export default function Home({ title, listfiles }) {
   const classes = styles();
   return (
     <div className={classes.container}>
@@ -39,31 +42,40 @@ export default function Home({ title }) {
           href="/obsidianIcon-32x32.png"
         />
       </Head>
-      <Typography variant="h2" className={classes.titleMain}>
+      <Typography variant="h3" className={classes.titleMain}>
         {title}
       </Typography>
-      <Grid
-        container
-        alignContent="center"
-        direction="column"
-        className={classes.main}
-      >
-        <Grid item>
-          <Paper className={classes.keyboardMain}>
-            <Button variant="contained" color="primary" fullWidth></Button>
-          </Paper>
+      <div className={classes.main}>
+        <Grid container alignContent="center" direction="column" spacing={2}>
+          {listfiles.map((file) => (
+            <Grid item className={classes.keypad}>
+              <Button
+                size="large"
+                variant="contained"
+                color="primary"
+                fullWidth
+                key={file}
+              >
+                <Typography variant="caption" className={classes.buttonItem}>
+                  {file}
+                </Typography>
+              </Button>
+            </Grid>
+          ))}
         </Grid>
-      </Grid>
-
+      </div>
       <Footer className={classes.footer} />
     </div>
   );
 }
 
 export async function getStaticProps(context) {
+  const listfiles = await listFiles();
+
   return {
     props: {
       title: 'Javascript code programs',
+      listfiles: listfiles,
     },
   };
 }
