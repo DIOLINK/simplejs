@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
 import Footer from '../../src/components/Footer';
@@ -23,6 +24,7 @@ const styles = makeStyles({
   footer: { width: '80vw', background: 'transparent' },
   titleMain: {
     color: '#fff',
+    textShadow: '-4px 6px 3px rgba(0,22,132,1)',
     fontWeight: 'bold',
     margin: 12,
   },
@@ -31,6 +33,8 @@ const styles = makeStyles({
 
 export default function Home({ title, listfiles }) {
   const classes = styles();
+  const router = useRouter();
+
   return (
     <div className={classes.container}>
       <Head>
@@ -50,6 +54,7 @@ export default function Home({ title, listfiles }) {
                 fullWidth
                 key={file}
                 className={classes.buttonItem}
+                onClick={() => router.push(`/challenge/${file}`)}
               >
                 <Typography variant="caption">{file}</Typography>
               </Button>
@@ -62,7 +67,7 @@ export default function Home({ title, listfiles }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const listfiles = await listFiles();
 
   return {
