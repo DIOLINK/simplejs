@@ -8,7 +8,7 @@ const styles = makeStyles({
   root: {
     background: 'rgb(111,16,222)',
     background:
-      'linear-gradient(45deg, rgba(111,16,222,1) 28%, rgba(22,132,721,1) 98%)',
+      'linear-gradient(45deg, rgba(21,113,202,1) 28%, rgba(11,166,250,1) 98%)',
     display: 'flex',
     flex: 1,
     minHeight: '100vh',
