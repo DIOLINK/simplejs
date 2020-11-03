@@ -15,8 +15,9 @@ const styles = makeStyles({
     flex: 1,
     padding: '0 5em',
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
+    overflow: 'hidden',
   },
   main: {
     marginTop: 20,
@@ -26,7 +27,7 @@ const styles = makeStyles({
     color: '#fff',
     textShadow: '-4px 6px 3px rgba(0,22,132,1)',
     fontWeight: 'bold',
-    margin: 12,
+    padding: 12,
   },
   buttonItem: { margin: 5, width: '33.33%' },
 });
